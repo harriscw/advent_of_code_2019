@@ -47,20 +47,7 @@ def coords(mytest):
 			x.append(x[-1])
 			y.append(y[-1]-int(value[1:]))
 	return x,y
-# print(mytest)		
-# print(coords(mytest))
 
-# print(coords(wire1)[0])
-# print("\n")
-# print(coords(wire1)[1])
-# print("\n")
-# print("\n")	
-# print(coords(wire2)[0])
-# print("\n")
-# print(coords(wire2)[1])
-
-# L1 = line([0,0],[997,0])	
-# L2 = line([0,0],[-997,0])	
 
 #these get x and y coordinates of each segment of each wire
 w1x = coords(wire1)[0]
@@ -138,17 +125,11 @@ for i in range(len(w2segx)):
 #get rid of [0,0]
 finalxints=finalxints[1:]
 finalyints=finalyints[1:]
-# w1x=w1x[1:]
-# w1y=w1y[1:]
-# w2x=w2x[1:]
-# w2y=w2y[1:]
 
 #iterate over intersection points
 stepstoint=[]
 for i in range(len(finalxints)):
 	print("The Int: ",finalxints[i],finalyints[i])
-	# thisw1steps=0
-	# thisw2steps=0
 # for row in w1 find where w1(x) = int(x) and w1(y)=int(y)
 #w1segx is all the integer points in the jth segment
 	for j in range(len(w1segx)):
