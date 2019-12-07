@@ -1,6 +1,5 @@
-#2600 too high
-#456 too low
-#1063!
+#626 too low
+
 #get all numbers in range 246540-787419
 initial_n = list(range(246540,787419+1))
 
@@ -46,3 +45,51 @@ for i in mydoubles:
 		
 # print(finallist)
 print("Number of doubles never decreasing: ",len(finallist))
+# print(finallist)
+
+
+##### Part 2
+##### find strict pairs
+
+import re
+
+# finallist = ['112233','113333','133344','123444','111122','255599']
+
+goodones=[]
+for thenum in finallist:
+	thisnumber=[]
+	for i in range(10):
+
+		#1. for doubles in middle e.g. (*)(!4)(4)(4)(!4)(*)
+		pattern1 = "[^" + str(i)+"]"+str(i)+str(i)+"[^" +str(i)+"]"
+		#2a. for doubles at start e.g. (4)(4)(!4)(*)(*)(*)
+		pattern2 = "^" + str(i)+str(i)+"[^" +str(i)+"]"
+		#2b. make sure the last 3 aren't a group of 4
+		# actually don't need this because numbers cant decrease
+		# pattern2b = re.compile(r"[^" + str(i)+str(i)+str(i)+"]$")
+		#3a. 
+		pattern3 = "[^" + str(i)+"]"+str(i)+str(i)+"$"
+		
+		thisnumber.append(re.search("|".join([pattern1,pattern2,pattern3]),thenum) is not None)
+
+	# print(thisnumber)
+	if thisnumber.count(True)>0:
+		# print("yessir")
+		goodones.append(thenum)
+
+# print(finallist)
+# print(goodones)	
+
+#check diffs
+thediffs = list(set(finallist) - set(goodones))
+print(thediffs)
+
+print("Final Answer: ",len(goodones))
+
+
+
+
+
+
+
+
