@@ -98,7 +98,8 @@ def intcomp(mylist,theinput,debug="Y"):
 				i=i+4
 				
 			elif opcode=="05":
-				print("First: ",firstpart,"Second: ",secondpart,"compare value",mylist[firstpart])
+				if debug=="Y":
+					print("First: ",firstpart,"Second: ",secondpart,"compare value",mylist[firstpart])
 				oldval=i
 				if mylist[firstpart] != 0:
 					i = mylist[secondpart]
