@@ -1,3 +1,5 @@
+#this took 2 hours
+
 import networkx as nx
 import csv
 import time
