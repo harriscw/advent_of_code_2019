@@ -58,7 +58,10 @@ for col in range(myncol):
 			coords.append([col,row])
 print(coords)
 
+##############
 #iterate over each asteroid
+##############
+
 #get a list of the slope between given asteroid and all other asteroids
 #then assign a direction to each since asteroids with same slope can be in opposite directions from the given asteroid
 #finally find the unique direction-ified slope values in that list per asteroid
@@ -93,7 +96,10 @@ for givenpt in coords:
 			slopenums.append(myslope)
 	finallist.append(len(set(slopenums)))
 
+#############
 #final output	
+#############
+
 print(df)
 print("Coordinates")
 print(coords)	
