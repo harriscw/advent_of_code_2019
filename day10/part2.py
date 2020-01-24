@@ -9,22 +9,6 @@ import csv
 #read in data
 #############
 
-#test cases
-
-# filename="test0.csv"
-# mynrow=5
-# myncol=5
-
-# filename="test1.csv"
-# filename="test2.csv"
-# filename="test3.csv"
-# mynrow=10
-# myncol=10
-
-# filename="test4.csv"
-# mynrow=20
-# myncol=20
-
 filename="finaltest.csv"
 mynrow=39
 myncol=39
@@ -70,7 +54,7 @@ print(coords)
 #then assign a direction to each since asteroids with same slope can be in opposite directions from the given asteroid
 #finally find the unique direction-ified slope values in that list per asteroid
 
-
+#only want the data relative to the optimal asteroid from part 1
 for givenpt in [[26,29]]:
 	slopenums=[]
 	thecoord=[]
@@ -102,7 +86,6 @@ for givenpt in [[26,29]]:
 
 #mark space station asteroid with an X
 df.loc[29,'orig']='.#......#...#...#.##......X..#.........'
-# print(df)
 
 #Convert lists into a dataframe
 import pandas as pd
@@ -125,7 +108,6 @@ slopedf['quadrant']=slopedf['slope'].str[:5]
 #create numeric slope var
 slopedf['slope2']=slopedf['slope'].str[5:].astype(float)
 
-
 # drop original slope
 slopedf=slopedf.drop(['slope'],axis=1)
 
@@ -133,9 +115,10 @@ slopedf=slopedf.drop(['slope'],axis=1)
 #sort
 #####
 #sort by quadrant, angle, distance
+# clockwise
 slopedf.sort_values(by=['quadrant','slope2','distance'],ascending=[True,False,True],inplace=True)
 
-#this value should be -inf, not inf
+#oops this value should be -inf, not inf
 slopedf.loc[250,'slope2']=-slopedf.loc[250,'slope2']
 
 slopedf.sort_values(by=['quadrant','slope2','distance'],ascending=[True,False,True],inplace=True)
@@ -148,7 +131,7 @@ with pd.option_context('display.max_rows',None):
 #####
 # do a while counter <200, 
 # iterate over rows in df, if  i !=i+1 append to list and delete from df.  
-mycnt=0
+mycnt=1 #start at one since I hardcoded first coordinate
 keepgoing=True
 blasted=[[26,26]]
 dropindex=[]
@@ -168,6 +151,8 @@ while keepgoing==True:
 print(df)			
 print(blasted)
 print(len(blasted))
+
+#answer [14,19]
 
 
 
