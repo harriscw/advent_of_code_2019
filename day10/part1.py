@@ -44,8 +44,6 @@ import textwrap
 mylist = textwrap.wrap(myinput, myncol)
 #convert to df
 df=pd.DataFrame(mylist,columns=['orig'])
-# print(df)
-# print(df.loc[0]['orig'][0:2])
 
 #######################
 #get coordinates of asteroids
