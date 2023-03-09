@@ -3,7 +3,7 @@
 
 import sys, math
 
-#We’re assigning our text file to argfile
+#We're assigning our text file to argfile
 #What we are saying here is that argfile contains the string, helloworld.txt
 argfile = str(sys.argv[1])
  
