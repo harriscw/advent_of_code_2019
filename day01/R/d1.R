@@ -29,16 +29,15 @@ print(paste("Part 2",sum(acc)))
 fuelval_recurse=function(x){ #input is a vector, do calc on last element
   if(fuelval(x)>0){ #if the fuel at the last element >=0
     x=c(x,fuelval(x)) #append it to the list
-    fuelval_recurse(x) #and keep goes
+    fuelval_recurse(x) #and keep going
   }else{ #...otherwise you've reached the end so return the vector
     return(x[-1]) #removing the initial input from recursive function result
   }
 }
 
-acc=c()
-for(i in input){ #iterate over input, apply recursive function, append sum to vector
-  acc=c(acc,sum(fuelval_recurse(i))) 
-}   
+acc=sapply(input,function(val){ #iterate over input, apply recursive function, append sum to vector
+  sum(fuelval_recurse(val))
+},simplify = TRUE)
 
 print(paste("Part 2",sum(acc)))
 
